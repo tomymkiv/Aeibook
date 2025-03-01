@@ -66,7 +66,7 @@
                 {{-- @auth --}}
                 <div class="flex flex-col items-center gap-3 justify-center w-full">
                     <div>
-                        <img src="{{ Vite::asset('resources/images/pichu.png') }}" alt="Imagen del usuario"
+                        <img src="{{ Vite::asset('resources/images/man.jpeg') }}" alt="Imagen del usuario"
                             class="rounded-full lg:w-32 lg:h-32 object-cover">
                     </div>
                     <div>

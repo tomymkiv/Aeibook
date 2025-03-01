@@ -18,7 +18,7 @@
             <!--si existe alguna publicacion...-->
             @foreach ($posts as $post)
                 <x-muro.publicaciones>
-                    <x-slot:userPhoto> {{ Vite::asset('resources/images/pichu.png') }} </x-slot:userPhoto>
+                    <x-slot:userPhoto> {{ Vite::asset('resources/images/man.jpeg') }} </x-slot:userPhoto>
                     <x-slot:username>Usuario {{ $post->user_id }}</x-slot:username>
                     <x-slot:imgPosted>{{ $post->image }}</x-slot:imgPosted>
                     <x-slot:descripcion>Descripcion: {{ $post->descripcion }}</x-slot:descripcion>

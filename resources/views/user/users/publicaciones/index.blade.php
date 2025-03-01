@@ -15,7 +15,7 @@
             {{ Vite::asset('resources/images/image-not-found.png') }}
         </x-slot:userPhoto>
         <x-slot:username>otro usuario</x-slot:username>
-        <x-slot:imgPosted>{{ Vite::asset('resources/images/pichu.png') }}</x-slot:imgPosted>
+        <x-slot:imgPosted>{{ Vite::asset('resources/images/man.jpeg') }}</x-slot:imgPosted>
         <x-slot:descripcion>esto es la descripcion del usuario distinto
         </x-slot:descripcion>
     </x-muro.publicaciones>

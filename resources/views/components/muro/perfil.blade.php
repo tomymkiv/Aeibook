@@ -17,7 +17,7 @@
             <div>
                 <h2 class="text-2xl">Imagen de perfil</h2>
             </div>
-            <img src="{{ Vite::asset('resources/images/pichu.png') }}" alt=""
+            <img src="{{ Vite::asset('resources/images/man.jpeg') }}" alt=""
                 class="rounded-full w-24 h-24 object-cover">
         </div>
         <div class="flex items-center gap-3">
