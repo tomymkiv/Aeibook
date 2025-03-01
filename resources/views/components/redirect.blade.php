@@ -1,0 +1,1 @@
+<a {{$attributes(['class' => 'self-end font-semibold text-md text-white/90 hover:underline'])}}>{{ $slot }}</a>
