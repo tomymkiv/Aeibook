@@ -1,4 +1,4 @@
-const deleteBtn = document.querySelectorAll(".delete-post-btn");
+const deleteBtn = document.querySelectorAll(".delete-btn");
 const cancelBtn = document.querySelectorAll(".cancel-btn");
 const modal = document.querySelector(".modal-container");
 

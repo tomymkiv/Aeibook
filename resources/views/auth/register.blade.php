@@ -6,29 +6,34 @@
         @csrf
         <div>
             <x-label for="user">Usuario (*)</x-label>
-            <x-input type="text" name="user" id="user" placeholder="Nombre de usuario" required />
+            <x-input type="text" name="name" id="name" placeholder="Nombre de usuario" required />
+            <x-error name="name" />
         </div>
         <div>
             <x-label for="email">Correo (*)</x-label>
             <x-input type="email" id="email" placeholder="Ej: example@gmail.com" name="email" required />
+            <x-error name="email" />
         </div>
         <div>
             <x-label for="password">Contraseña (*)</x-label>
             <x-input type="password" id="password" name="password" required />
+            <x-error name="password" />
         </div>
         <div>
             <x-label for="password_confirmation">Confirmar contraseña (*)</x-label>
             <x-input type="password" id="password_confirmation" name="password_confirmation" required />
+            <x-error name="password_confirmation" />
         </div>
         <div class="flex flex-col gap-3 items-center lg:items-start">
             <x-label for="image">Imagen de perfil</x-label>
             <label for="file-upload"
-                class="relative w-24 h-24 rounded-full bg-transparent flex items-center justify-center overflow-hidden border-2 border-gray-300 hover:border-blue-500 transition">
+                class="cursor-pointer relative w-24 h-24 rounded-full bg-transparent flex items-center justify-center overflow-hidden border-2 border-gray-300 hover:border-blue-500 transition">
                 <div id="previewContainer" class="hidden">
                     <img id="previewImage" class="rounded-full object-cover aspect-square">
                 </div>
             </label>
             <x-input id="file-upload" type="file" name="profile_photo" class="hidden" accept="image/*" />
+            <x-error name="profile_photo" />
         </div>
         <div class="flex flex-col lg:flex-row gap-3 lg:gap-1 items-center justify-between space-y-10 lg:space-y-0">
             <div class="flex gap-4 items-center justify-center lg:justify-start w-full flex-wrap">

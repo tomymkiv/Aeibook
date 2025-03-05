@@ -14,6 +14,4 @@ btn.addEventListener('click', () => {
   asideContainer.classList.toggle('p-4');
   menuSection.classList.toggle('z-40');
   menuBars.classList.toggle('bg-black/65')
-
-  clicked = !clicked;
 })

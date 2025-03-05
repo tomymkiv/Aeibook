@@ -1,8 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<x-head />
-{{-- bg-[#005C4B] --}}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laravel</title>
+    @vite(['resources/js/app.js'])
+    @if (request()->is('login') ||
+            request()->is('user/edit') ||
+            request()->is('user/muro/*/edit') ||
+            request()->is('user/muro/create'))
+        @vite(['resources/js/vistaArchivo.js'])
+    @endif
+
+    @if (!request()->is('login') && !request()->is('register'))
+        @vite(['resources/js/menu.js'])
+        @vite(['resources/js/modal.js'])
+    @endif
+    @vite(['resources/js/info-publicaciones.js'])
+</head>
 
 <body class="font-sans antialiased bg-black/90 dark:text-white/50">
     @if (!request()->is('/'))
@@ -20,12 +36,21 @@
                     </button>
                     <aside
                         class="transition-all w-0 aside-nav duration-350 lg:w-64 h-screen bg-black/65 text-white flex flex-col lg:justify-between gap-10 overflow-hidden">
-                        <section class="lg:hidden w-full lg:w-1/2 lg:w-1/3">
+                        <section class="lg:hidden w-full">
                             <div
-                                class="lg:p-8 py-5 lg:px-5 text-black/50 lg:dark:bg-black/50 dark:text-white/50 flex gap-5 justify-center items-end lg:items-start justify-self-center sticky lg:h-screen top-0 lg:w-full">
-                                <div class="">
-                                    <form action="">
-                                        <x-input type="text" placeholder="Busca un usuario" />
+                                class="py-5 text-black/50 dark:text-white/50 flex flex-col gap-5 justify-center items-center stickytop-0 w-full">
+                                @auth
+                                    <div class="flex flex-col items-center gap-3 justify-center">
+                                        <img src="{{ asset($user->profile_photo) }}" alt="Imagen del usuario"
+                                            class="rounded-full w-full max-w-35 object-cover aspect-square">
+                                        <p class="font-semibold text-white/80 text-xl">{{ $user->name }}</p>
+                                    </div>
+                                @endauth
+                                <div class="justify-self-center">
+                                    <form action="/search" class="flex flex-col xl:flex-row items-end gap-3">
+                                        @csrf
+                                        <x-input type="text" name="q" placeholder="Busca un usuario" />
+                                        {{-- <x-button type="submit" class="w-full xl:w-fit">Buscar</x-button> --}}
                                     </form>
                                 </div>
                             </div>
@@ -34,14 +59,27 @@
                             <h3 class="text-2xl font-bold mb-6">Menú</h3>
                             <ul>
                                 <x-nav-link href="/home" :active="request()->is('home')">Inicio</x-nav-link>
-                                <x-nav-link href="/user/perfil" :active="request()->is('user/perfil')">Mi perfil</x-nav-link>
-                                <x-nav-link href="/user/muro" :active="request()->is('user/muro')">Mis publicaciones</x-nav-link>
+                                @auth
+                                    <x-nav-link href="/user/{{ $user->id }}/perfil" :active="request()->is('user/' . Auth::user()->id . '/perfil')">Mi
+                                        perfil</x-nav-link>
+                                    <x-nav-link href="/user/{{ Auth::user()->id }}/muro" :active="request()->is('user/' . Auth::user()->id . '/muro')">Mis
+                                        publicaciones</x-nav-link>
+                                    <x-nav-link href="/user/settings" :active="request()->is('user/settings')">Configuración</x-nav-link>
+                                @endauth
                                 @guest
                                     <x-nav-link href="/login">Iniciar sesión</x-nav-link>
                                     <x-nav-link href="/register">Registrarse</x-nav-link>
                                 @endguest
                                 @auth
-                                    <x-nav-link href="/register">Cerrar sesión</x-nav-link>
+                                    <form action="/logout" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <li class="list-none ">
+                                            <button type="submit"
+                                                class="text-start text-lg text-font-semibold block p-2 rounded hover:bg-black/40 transition-colors duration-250 cursor-pointer w-full">Cerrar
+                                                sesión</button>
+                                        </li>
+                                    </form>
                                 @endauth
                             </ul>
                         </nav>
@@ -58,25 +96,30 @@
     @if (
         !request()->is('/') &&
             !request()->is('user/edit') &&
-            !request()->is('user/post/create') &&
-            !request()->is('user/profile'))
+            !request()->is('user/muro/create') &&
+            !request()->is('user/{{ $user->id }}/perfil'))
         <section class="hidden lg:block fixed lg:static w-full lg:w-1/2 lg:w-1/3 bg-white/10 lg:bg-transparent">
             <div
                 class="lg:p-8 py-5 lg:px-5 text-black/50 lg:dark:bg-black/50 dark:text-white/50 flex gap-5 lg:items-start justify-self-center sticky lg:h-screen top-0 lg:w-full flex-col">
                 {{-- @auth --}}
-                <div class="flex flex-col items-center gap-3 justify-center w-full">
-                    <div>
-                        <img src="{{ Vite::asset('resources/images/man.jpeg') }}" alt="Imagen del usuario"
-                            class="rounded-full lg:w-32 lg:h-32 object-cover">
+                @auth
+                    <div class="flex flex-col items-center gap-3 justify-center w-full">
+                        <div>
+                            <img src="{{ asset($user->profile_photo) }}" alt="Imagen del usuario"
+                                class="rounded-full lg:w-32 lg:h-32 object-cover">
+                        </div>
+                        <div>
+                            <p>{{ $user->name }}</p>
+                        </div>
                     </div>
-                    <div>
-                        <p>usuario</p>
-                    </div>
-                </div>
+                @endauth
+
                 {{-- @endauth --}}
                 <div class="w-full">
-                    <form action="">
-                        <x-input type="text" placeholder="Busca un usuario" />
+                    <form action="/search" class="flex flex-col xl:flex-row items-end gap-3">
+                        @csrf
+                        <x-input type="text" name="q" placeholder="Busca un usuario" />
+                        <x-button type="submit" class="w-full xl:w-fit">Buscar</x-button>
                     </form>
                 </div>
                 <div class="lg:hidden">
@@ -97,10 +140,14 @@
             <div class="max-w-6xl mx-auto px-4">
                 <div class="flex flex-col lg:flex-row justify-between items-center">
                     <p class="text-sm">&copy; Esto no tiene copyright. Solo está para verse lindo</p>
-                    <nav class="flex items-center gap-4 mt-4 lg:mt-0">
+                    <nav class="flex items-center justify-center flex-wrap gap-4 mt-4 lg:mt-0">
                         <x-nav-link href="/home" :active="request()->is('home')">Inicio</x-nav-link>
-                        <x-nav-link href="/user/perfil" :active="request()->is('/user/perfil')">Mi perfil</x-nav-link>
-                        <x-nav-link href="/user/muro" :active="request()->is('user/muro')">Mis publicaciones</x-nav-link>
+                        @auth
+                            {{-- @dd('/user/' . $user->id . '/perfil') --}}
+                            <x-nav-link href="/user/{{ $user->id }}/perfil" :active="request()->is('user/' . $user->id . '/perfil')">Mi perfil</x-nav-link>
+                            <x-nav-link href="/user/{{ $user->id }}/muro" :active="request()->is('user/' . $user->id . '/muro')">Mis
+                                publicaciones</x-nav-link>
+                        @endauth
                     </nav>
                 </div>
             </div>

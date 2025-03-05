@@ -13,7 +13,7 @@
                     <h2 class="text-3xl hover:underline">Registrate aquí</h2>
                 </a>
                 <a href="/home">
-                    <h2 class="text-3xl hover:underline">O entra sin registrarte</h2>
+                    <h2 class="text-3xl hover:underline">O entra como invitado</h2>
                 </a>
             </div>
         </div>
