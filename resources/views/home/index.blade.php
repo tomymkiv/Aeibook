@@ -1,6 +1,6 @@
 
 <x-layout>
-    <section class="h-screen flex flex-col justify-stretch items-center gap-5 mt-10">
+    <section class="h-screen flex flex-col justify-around items-center gap-5 mt-10">
         <div class="flex items-center justify-center  p-10 md:p-0">
             <img src="{{Vite::asset('resources/logo/png/logo-no-background.png')}}" class="w-full md:w-1/2 lg:w-1/3" />
         </div>
