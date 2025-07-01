@@ -1,40 +1,40 @@
-Aclaración: estos pasos son para usuarios pertenecientes a Windows 11.
+Aclaración: estos pasos son para usuarios pertenecientes a Windows 11. <br> <br>
 
-Para ejecutar esta app tuve que instalar varios programas (omitiendo un IDE. En mi caso, uso VSCode):
+Para ejecutar esta app tuve que instalar varios programas (omitiendo un IDE. En mi caso, uso VSCode): <br> <br>
 
-1 - Laravel Herd (windows). Incluye php (8.4 para esta app) y nginx
-2 - npm y Node
-3 - TablePlus
-4 - Vite (incluido dentro de la creacion del proyecto)
+1 - Laravel Herd (windows). Incluye php (8.4 para esta app) y nginx <br>
+2 - npm y Node <br>
+3 - TablePlus <br>
+4 - Vite (incluido dentro de la creacion del proyecto) <br> <br>
 
-Laravel Herd:
-1.1 - Ingresar al siguiente link
-1.2 - Ejecutar el programa. La instalación será automática si todo sale bien
-1.3 - Instalar, dentro de Herd, PHP 8.4 y nginx
+Laravel Herd: <br>
+1.1 - Ingresar al siguiente link <br>
+1.2 - Ejecutar el programa. La instalación será automática si todo sale bien <br>
+1.3 - Instalar, dentro de Herd, PHP 8.4 y nginx <br>
 
-npm y Node:
-2.1 - Instalar node ingresando a https://nodejs.org/en/download
-2.2 - Seguir las instrucciones del programa ejecutable.
-2.3 - Si todo sale bien, tambien se habra instalado npm.
-2.4 - Verificar que todo esté instalado usando "node -v" y "npm -v".
+npm y Node: <br>
+2.1 - Instalar node ingresando a https://nodejs.org/en/download <br>
+2.2 - Seguir las instrucciones del programa ejecutable. <br>
+2.3 - Si todo sale bien, tambien se habra instalado npm. <br>
+2.4 - Verificar que todo esté instalado usando "node -v" y "npm -v". <br>
 
-TablePlus: software de administración de bases de datos que sirve para conectarse, visualizar, gestionar y editar bases de datos de forma rápida y sencilla
+TablePlus: software de administración de bases de datos que sirve para conectarse, visualizar, gestionar y editar bases de datos de forma rápida y sencilla <br><br>
 
-Instalacion:
+Instalacion: <br><br>
 
-3.1 - Entramos al link y elegimos la version: https://tableplus.com/download/
-3.2 - Ejecutamos el programa y seguimos los pasos correspondientes
-3.3 - Una vez instalado, crearemos una nueva conexion (Create connection..., abajo a la izquierda)
-3.4 - Elegimos el motor SQLite
-3.5 - Añadimos el archivo de la app (Aeibook/database/database.sqlite) y le asignamos el nombre para poder identificarlo (esto último es opcional)
-3.6 - Guardamos y conectamos la base de datos para ver la informacion de esta.
+3.1 - Entramos al link y elegimos la version: https://tableplus.com/download/ <br>
+3.2 - Ejecutamos el programa y seguimos los pasos correspondientes <br>
+3.3 - Una vez instalado, crearemos una nueva conexion (Create connection..., abajo a la izquierda) <br>
+3.4 - Elegimos el motor SQLite <br>
+3.5 - Añadimos el archivo de la app (Aeibook/database/database.sqlite) y le asignamos el nombre para poder identificarlo (esto último es opcional) <br>
+3.6 - Guardamos y conectamos la base de datos para ver la informacion de esta. <br><br>
 
-Una vez tenemos todos estos programas, toca ejecutar el proyecto.
+Una vez tenemos todos estos programas, toca ejecutar el proyecto. <br><br>
 
-1 - Abrimos Laravel Herd para que se ejecute el server local.
-2 - Si pulleas el archivo, debe ser dentro de la carpeta C:\Users\Usuario\Herd.
-3 - Una vez se pullea, quedará la carpeta "Herd/Aeibook".
-4 - Cuando estemos seguros que el proyecto está alli, abrimos la terminal en el directorio de la app ('C:\Users\Usuario\Herd\Aeibook')
-5 - En la misma terminal, escribimos "npm run dev"
-6 - Elegimos la opcion de Laravel (APP_URL: http://aeibook.test).
+1 - Abrimos Laravel Herd para que se ejecute el server local. <br>
+2 - Si pulleas el archivo, debe ser dentro de la carpeta C:\Users\Usuario\Herd. <br>
+3 - Una vez se pullea, quedará la carpeta "Herd/Aeibook". <br>
+4 - Cuando estemos seguros que el proyecto está alli, abrimos la terminal en el directorio de la app ('C:\Users\Usuario\Herd\Aeibook') <br>
+5 - En la misma terminal, escribimos "npm run dev". <br>
+6 - Elegimos la opcion de Laravel (APP_URL: http://aeibook.test). <br>
 7 - Ingresamos al link usando CTRL + Click.
