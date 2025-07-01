@@ -38,3 +38,12 @@ Una vez tenemos todos estos programas, toca ejecutar el proyecto. <br><br>
 5 - En la misma terminal, escribimos "npm run dev". <br>
 6 - Elegimos la opcion de Laravel (APP_URL: http://aeibook.test). <br>
 7 - Ingresamos al link usando CTRL + Click.
+
+En el caso de que les salte un error de Vite, referido a que el manifesto no encuentra un archivo png, deben instalar algunas dependencias que faltan de este software. <br><br>
+
+Para esto deben ingresar al directorio del proyecto (desde una terminal) e ingresar:<br><br>
+
+npm install<br>
+npm run dev<br><br>
+
+Luego, les saldra algo muy similar a los puntos 6 y 7 de la instalacion.
