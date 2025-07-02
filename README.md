@@ -44,5 +44,5 @@ Conexion con la base de datos:
 2 - Elegimos el motor SQLite <br>
 ![null (3)](https://github.com/user-attachments/assets/e6dc2858-8eb6-4729-8b0f-91500f9eb132)<br>
 3 - Añadimos el archivo de la app (Aeibook/database/database.sqlite) y le asignamos el nombre para poder identificarlo (esto último es opcional) <br>
-![null (4)](https://github.com/user-attachments/assets/ed93d98b-f4c7-4b26-b1aa-221879eef8ed)<br>
+![null (5)](https://github.com/user-attachments/assets/74054333-542c-440a-b027-dc99872515bb)<br>
 4 - Guardamos y conectamos la base de datos para ver la informacion de esta. <br><br>
