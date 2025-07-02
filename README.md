@@ -26,26 +26,21 @@ Instalacion: <br><br>
 
 3.1 - Entramos al link y elegimos la version: https://tableplus.com/download/ <br>
 3.2 - Ejecutamos el programa y seguimos los pasos correspondientes <br>
-3.3 - Una vez instalado, crearemos una nueva conexion (Create connection..., abajo a la izquierda) <br>
-3.4 - Elegimos el motor SQLite <br>
-3.5 - Añadimos el archivo de la app (Aeibook/database/database.sqlite) y le asignamos el nombre para poder identificarlo (esto último es opcional) <br>
-3.6 - Guardamos y conectamos la base de datos para ver la informacion de esta. <br><br>
 
 Una vez tenemos todos estos programas, toca ejecutar el proyecto. <br><br>
 
 1 - Abrimos Laravel Herd para que se ejecute el server local. <br>
 2 - Si pulleas el archivo, debe ser dentro de la carpeta C:\Users\Usuario\Herd. <br>
 3 - Una vez se pullea, quedará la carpeta "Herd/Aeibook". <br>
-4 - Cuando estemos seguros que el proyecto está alli, abrimos la terminal en el directorio de la app ('C:\Users\Usuario\Herd\Aeibook') <br>
-5 - En la misma terminal, escribimos "npm run dev". <br>
-6 - Elegimos la opcion de Laravel (APP_URL: http://aeibook.test). <br>
-7 - Ingresamos al link usando CTRL + Click.
+4 - Cuando estemos seguros que el proyecto está alli, abrimos la terminal en el directorio de la app ('C:\Users\Usuario\Herd\Aeibook'). <br>
+5 - En la misma terminal, escribimos "npm run dev". En el caso de que les salga algo como <b>'vite' is not recognized as an internal or external command</b>, deben seguir estos pasos. <br>
+    5.1 - npm install && npm run dev. De esta forma, instalaremos las dependencias de Vite que necesitamos para ejecutar el proyecto.<br>
+    Esto debe ser dentro del directorio del proyecto (../Herd/Aeibook).<br>
+6 - Elegimos la opcion de Laravel (APP_URL: http://aeibook.test). Ingresamos al link usando CTRL + Click. <br>
 
-En el caso de que les salte un error de Vite, referido a que el manifesto no encuentra un archivo png, deben instalar algunas dependencias que faltan de este software. <br><br>
+Conexion con la base de datos:
 
-Para esto deben ingresar al directorio del proyecto (desde una terminal) e ingresar:<br><br>
-
-npm install<br>
-npm run dev<br><br>
-
-Luego, les saldra algo muy similar a los puntos 6 y 7 de la instalacion.
+1 - Una vez instalado TablePlus, crearemos una nueva conexion (Create connection..., abajo a la izquierda) <br>
+2 - Elegimos el motor SQLite <br>
+3 - Añadimos el archivo de la app (Aeibook/database/database.sqlite) y le asignamos el nombre para poder identificarlo (esto último es opcional) <br>
+4 - Guardamos y conectamos la base de datos para ver la informacion de esta. <br><br>
