@@ -1,4 +1,4 @@
-![null (2)](https://github.com/user-attachments/assets/c95a4eb5-bf58-4c8d-9279-87665e260f66)Aclaración: estos pasos son para usuarios pertenecientes a Windows 11. <br> <br>
+Aclaración: estos pasos son para usuarios pertenecientes a Windows 11. <br> <br>
 
 Para ejecutar esta app tuve que instalar varios programas (omitiendo un IDE. En mi caso, uso VSCode): <br> <br>
 
