@@ -18,7 +18,7 @@ npm y Node: <br>
 2.3 - Asegurense de seleccionar la opcion de "npm package manager". <br>
 ![image](https://github.com/user-attachments/assets/2517e7f2-36a2-4f16-9c61-1d024bc29234)
 <br>
-2.4 - Verificar que todo esté instalado usando "node -v" y "npm -v". <br>
+2.4 - Verificar, dentro de la terminal (cmd), que todo esté instalado usando "node -v" y "npm -v". <br>
 
 TablePlus: software de administración de bases de datos que sirve para conectarse, visualizar, gestionar y editar bases de datos de forma rápida y sencilla <br><br>
 
