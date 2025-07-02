@@ -8,7 +8,7 @@ Para ejecutar esta app tuve que instalar varios programas (omitiendo un IDE. En 
 4 - Vite (incluido dentro de la creacion del proyecto) <br> <br>
 
 Laravel Herd: <br>
-1.1 - Ingresar al siguiente link <br>
+1.1 - Ingresar al siguiente link: https://herd.laravel.com/windows <br>
 1.2 - Ejecutar el programa. La instalación será automática si todo sale bien <br>
 1.3 - Instalar, dentro de Herd, PHP 8.4 y nginx <br>
 
