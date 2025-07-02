@@ -1,4 +1,4 @@
-Aclaración: estos pasos son para usuarios pertenecientes a Windows 11. <br> <br>
+![null (2)](https://github.com/user-attachments/assets/c95a4eb5-bf58-4c8d-9279-87665e260f66)Aclaración: estos pasos son para usuarios pertenecientes a Windows 11. <br> <br>
 
 Para ejecutar esta app tuve que instalar varios programas (omitiendo un IDE. En mi caso, uso VSCode): <br> <br>
 
@@ -30,17 +30,19 @@ Instalacion: <br><br>
 Una vez tenemos todos estos programas, toca ejecutar el proyecto. <br><br>
 
 1 - Abrimos Laravel Herd para que se ejecute el server local. <br>
-2 - Si pulleas el archivo, debe ser dentro de la carpeta C:\Users\Usuario\Herd. <br>
-3 - Una vez se pullea, quedará la carpeta "Herd/Aeibook". <br>
+2 - Si clonas el proyecto, debe ser dentro de la carpeta C:\Users\Usuario\Herd. <br>
+3 - Una vez se clona, quedará la carpeta "Herd/Aeibook". <br>
 4 - Cuando estemos seguros que el proyecto está alli, abrimos la terminal en el directorio de la app ('C:\Users\Usuario\Herd\Aeibook'). <br>
-5 - En la misma terminal, escribimos "npm run dev". En el caso de que les salga algo como <b>'vite' is not recognized as an internal or external command</b>, deben seguir estos pasos. <br>
-    5.1 - npm install && npm run dev. De esta forma, instalaremos las dependencias de Vite que necesitamos para ejecutar el proyecto.<br>
-    Esto debe ser dentro del directorio del proyecto (../Herd/Aeibook).<br>
+5 - En la misma terminal, escribimos "npm install && npm run dev". De esta forma, instalaremos las dependencias de Vite que necesitamos para ejecutar el proyecto. <br>
 6 - Elegimos la opcion de Laravel (APP_URL: http://aeibook.test). Ingresamos al link usando CTRL + Click. <br>
+![null (1)](https://github.com/user-attachments/assets/e67ef054-1406-4512-b715-c1f437ad902a)
 
 Conexion con la base de datos:
 
 1 - Una vez instalado TablePlus, crearemos una nueva conexion (Create connection..., abajo a la izquierda) <br>
+![image](https://github.com/user-attachments/assets/882bae2a-b352-4acd-af85-69c12576169c)<br>
 2 - Elegimos el motor SQLite <br>
+![null (3)](https://github.com/user-attachments/assets/e6dc2858-8eb6-4729-8b0f-91500f9eb132)<br>
 3 - Añadimos el archivo de la app (Aeibook/database/database.sqlite) y le asignamos el nombre para poder identificarlo (esto último es opcional) <br>
+![null (4)](https://github.com/user-attachments/assets/ed93d98b-f4c7-4b26-b1aa-221879eef8ed)<br>
 4 - Guardamos y conectamos la base de datos para ver la informacion de esta. <br><br>
