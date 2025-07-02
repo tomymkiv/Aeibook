@@ -15,7 +15,8 @@ Laravel Herd: <br>
 npm y Node: <br>
 2.1 - Instalar node ingresando a https://nodejs.org/en/download <br>
 2.2 - Seguir las instrucciones del programa ejecutable. <br>
-2.3 - Si todo sale bien, tambien se habra instalado npm. ![image](https://github.com/user-attachments/assets/2517e7f2-36a2-4f16-9c61-1d024bc29234)
+2.3 - Asegurense de seleccionar la opcion de "npm package manager". <br>
+![image](https://github.com/user-attachments/assets/2517e7f2-36a2-4f16-9c61-1d024bc29234)
 <br>
 2.4 - Verificar que todo esté instalado usando "node -v" y "npm -v". <br>
 
