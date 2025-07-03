@@ -15,7 +15,6 @@ input.addEventListener('change', function (event) {
 
             img.src = e.target.result;
             img.classList.add('block'); // Mostrar la imagen
-            console.log(file.type);
         };
         reader.readAsDataURL(file); // Leer el archivo como URL
     }
