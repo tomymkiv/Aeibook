@@ -35,14 +35,14 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $imgStore = null; # Imagen nula en caso de no elegir ningun archivo
-
+        
         $request->validate([
             'descripcion' => ['required', 'max:2048'],
-            'image' => ['nullable', File::types(['png', 'jpeg', 'jpg', 'webp', 'gif'])],
+            'image' => ['nullable', 'file', File::types(['png', 'jpeg', 'jpg', 'webp', 'gif'], 'max:16384')],
         ]);
 
-        # Si tengo una imagen, le creo la url para almacenarla en esta carpeta
-        if (!is_null($request->image)) {
+        # Si tengo un archivo, le creo la url para almacenarla en esta carpeta
+        if ($request->hasFile('image')) {
             $imgStore = $request->image->store('publicaciones_images');
         }
 

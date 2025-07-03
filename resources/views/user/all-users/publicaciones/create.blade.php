@@ -27,7 +27,7 @@
                                     </div>
                                 </label>
                                 <x-input id="file-upload" type="file" name="image" class="hidden"
-                                    accept="image/webp, image/jpg, image/png, image/jpeg, .gif" />
+                                    accept="image/png, image/jpeg, image/jpg, image/webp, image/gif" />
                             </div>
                             <x-error name="image" />
                         </div>
