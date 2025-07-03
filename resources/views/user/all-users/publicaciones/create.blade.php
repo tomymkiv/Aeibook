@@ -4,17 +4,19 @@
             @csrf
             <div>
                 <h1 class="text-4xl">Crea tu publicación</h1>
+                <p class="text-sm mt-3">Cada campo con (*) es obligatorio</p>
             </div>
             <div class="flex flex-col gap-5">
                 <div>
                     <x-label for="descripcion" class="text-2xl">Añade una descripción a tu publicación (*)</x-label>
                 </div>
+                
                 <div class="flex flex-col gap-3">
                     <textarea name="descripcion" id="descripcion" rows="30" class="rounded-md p-1 max-h-96 border border-white/30"></textarea>
                     <div class="flex flex-wrap justify-between items-end">
                         <div class="flex items-center gap-5">
                             <div>
-                                <x-label for="image" class="cursor-pointer text-xl">Añade una imagen a tu
+                                <x-label for="image" class="text-xl">Añade una imagen a tu
                                     publicación</x-label>
                             </div>
                             <div>
@@ -25,8 +27,9 @@
                                     </div>
                                 </label>
                                 <x-input id="file-upload" type="file" name="image" class="hidden"
-                                    accept="image/*" />
+                                    accept="image/webp, image/jpg, image/png, image/jpeg, .gif" />
                             </div>
+                            <x-error name="image" />
                         </div>
                         <div>
                             <div>

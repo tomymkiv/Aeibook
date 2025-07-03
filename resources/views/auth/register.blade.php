@@ -1,5 +1,6 @@
 <x-form-layout>
     <x-slot:headingTitle>Crea tu cuenta</x-slot:headingTitle>
+    <p class="text-sm text-white/60">Los campos con (*) son obligatorios.</p>
     <x-slot:logRegisterTitle>¿Tienes una cuenta?</x-slot:logRegisterTitle>
     <x-slot:logRegister href="/login">Haz click aquí</x-slot:logRegister>
     <x-form method="post" action="/register" enctype="multipart/form-data">

@@ -109,7 +109,7 @@
                                 class="rounded-full lg:w-32 lg:h-32 object-cover">
                         </div>
                         <div>
-                            <p>{{ $user->name }}</p>
+                            <p class="text-white/80">{{ $user->name }}</p>
                         </div>
                     </div>
                 @endauth

@@ -61,7 +61,7 @@
                 </div>
             @endif
             <div class="text-wrap break-words">
-                <p class="w-full text-lg lg:text-md font-medium">
+                <p class="w-full text-sm font-medium">
                     {{ $postDescripcion }}</p>
                 <!--descripcion de la publicacion-->
             </div>

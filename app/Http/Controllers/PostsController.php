@@ -38,14 +38,13 @@ class PostsController extends Controller
 
         $request->validate([
             'descripcion' => ['required', 'max:2048'],
-            'image' => ['nullable', File::types(['png', 'jpeg', 'jpg'])],
+            'image' => ['nullable', File::types(['png', 'jpeg', 'jpg', 'webp', 'gif'])],
         ]);
 
         # Si tengo una imagen, le creo la url para almacenarla en esta carpeta
         if (!is_null($request->image)) {
             $imgStore = $request->image->store('publicaciones_images');
         }
-
 
         Posts::create([
             'user_id' => Auth::user()->id,
@@ -69,7 +68,7 @@ class PostsController extends Controller
 
         $request->validate([
             'descripcion' => ['nullable'],
-            'image' => ['nullable', File::types(['png', 'jpg', 'jpeg', 'webp'])],
+            'image' => ['nullable', File::types(['png', 'jpg', 'jpeg', 'webp', 'gif'])],
         ]);
 
         $data = $request->only(['descripcion', 'image']);
