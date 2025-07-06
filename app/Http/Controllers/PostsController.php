@@ -12,9 +12,8 @@ class PostsController extends Controller
 {
     public function index()
     {
-        # Ordeno por fecha de creación, de forma descendente (desc).
         $posts = Posts::orderBy('created_at', 'desc')->get();
-
+        
         return view(
             'home.home',
             [
@@ -35,9 +34,9 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $imgStore = null; # Imagen nula en caso de no elegir ningun archivo
-        
+
         $request->validate([
-            'descripcion' => ['required', 'max:2048'],
+            'descripcion' => 'required|max:2048',
             'image' => ['nullable', 'file', File::types(['png', 'jpeg', 'jpg', 'webp', 'gif'], 'max:16384')],
         ]);
 
@@ -89,7 +88,6 @@ class PostsController extends Controller
     }
     public function destroy(Posts $post)
     {
-        // $post = Posts::find($id);
         $post->delete();
 
         return redirect('/home');

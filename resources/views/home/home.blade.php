@@ -2,14 +2,12 @@
     # Verifico si existen usuarios relacionados con posts
     $posts_avail = false;
 
-    for ($i = 0; $i < $posts->count(); $i++) {
-        if ($posts[$i]->user) {
-            // dd('nada');
+    foreach ($posts as $post) {
+        if ($post->user) {
             $posts_avail = true;
         }
     }
 @endphp
-
 <x-layout>
     <section class="flex mt-10 flex-col mx-3">
         <div class="mx-3 mt-10">
@@ -19,12 +17,10 @@
             <x-not-publicaciones />
         @else
             <!--filtro ÚNICAMENTE los usuarios con posts
-                los posts sin usuario
-                habia un error que cuando eliminabas un usuario, su post seguí estando
-                cuando realmente deberian eliminarse ambas cosas (en la base de datos se refleja bien, pero en el entorno de desarrollo no)
+                habia un error que cuando eliminabas un usuario, su post seguía estando
+                cuando realmente deberian eliminarse ambas cosas (en la base de datos se refleja bien, pero en tableplus no)
             -->
             @foreach ($posts as $post)
-                {{-- @dd($post->user->profile_photo) --}}
                 @if ($post->user)
                     <x-publicaciones>
                         <x-slot:profilePhoto>{{ $post->user->profile_photo }}</x-slot:profilePhoto>

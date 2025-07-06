@@ -10,7 +10,7 @@
                 <div>
                     <x-label for="descripcion" class="text-2xl">Añade una descripción a tu publicación (*)</x-label>
                 </div>
-                
+
                 <div class="flex flex-col gap-3">
                     <textarea name="descripcion" id="descripcion" rows="30" class="rounded-md p-1 max-h-96 border border-white/30"></textarea>
                     <div class="flex flex-wrap justify-between items-end">
@@ -21,13 +21,14 @@
                             </div>
                             <div>
                                 <label for="file-upload"
-                                    class="cursor-pointer relative w-24 h-24 rounded-full bg-transparent flex items-center justify-center overflow-hidden border-2 border-gray-300 hover:border-blue-500 transition">
+                                    class="cursor-pointer dark:outline-blue-500 relative w-24 h-24 rounded-full bg-transparent flex items-center justify-center overflow-hidden border-2 border-gray-300 hover:border-blue-500 hover:ring-white transition" tabindex="0">
                                     <div id="previewContainer" class="hidden">
-                                        <img id="previewImage" class="rounded-full object-cover aspect-square">
+                                        <img id="previewImage" class="rounded-full object-cover w-full h-full aspect-square">
                                     </div>
                                 </label>
-                                <x-input id="file-upload" type="file" name="image" class="hidden"
-                                    accept="image/png, image/jpeg, image/jpg, image/webp, image/gif" />
+                                <input id="file-upload" type="file" name="image" class="hidden w-full h-full"
+                                    accept="image/png, image/jpeg, image/jpg, image/webp, image/gif, 
+                                        video/mp4, video/webm, video/ogg, video/mkv, video/mov, video/avi" />
                             </div>
                             <x-error name="image" />
                         </div>

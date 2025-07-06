@@ -3,6 +3,7 @@
     $idUser = trim($userId->toHtml());
     # lo convierto a html para tomar el contenido correctamente
     $postImageContent = trim($postImage->toHtml());
+    $IdPostSeleccionado = $postId;
 @endphp
 
 <article class="w-full w-full max-w-sm sm:max-w-lg text-black/75 mx-3 mt-24 space-y-14">
@@ -41,23 +42,25 @@
                             <x-dropdown-item href="/user/{{ $userId }}/perfil">Información del
                                 perfil</x-dropdown-item>
                             @auth
+                                {{-- Si el usuario autenticado es el mismo que el del post, muestra las opciones de editar y eliminar --}}
                                 @if ($idUser == Auth::user()->id)
                                     <x-dropdown-item href="/user/muro/{{ $postId }}/edit">Editar</x-dropdown-item>
-                                    <x-dropdown-item class="text-red-400 delete-btn">Eliminar</x-dropdown-item>
-                                    <x-form action="/user/muro/{{ $postId }}" id="delete-form" class="hidden"
+                                    <x-dropdown-item class="text-red-400 delete-btn" onclick="">Eliminar</x-dropdown-item>
+                                    <x-form action="/user/muro/{{ $postId }}" id="delete-form" class=""
                                         method="POST">
                                         @csrf
                                         @method('DELETE')
                                     </x-form>
                                 @endif
                             @endauth
+
                         </div>
                     </div>
                 </div>
             </div>
             @if (!empty($postImageContent))
                 <div class="flex items-center justify-center">
-                    <img src="{{ asset($postImage) }}" class="w-full max-h-125" />
+                    <img src="{{ asset($postImage) }}" class="w-full max-h-100 object-contain" />
                 </div>
             @endif
             <div class="text-wrap break-words">

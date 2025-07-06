@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\File;
 use Illuminate\Validation\Rules\Password as RulesPassword;
@@ -36,11 +35,6 @@ class RegisterUserController extends Controller
             # Si no selecciono una imagen, asigno una aleatoria
             $imgStore = 'http://picsum.photos/seed/' . rand(0, 100000) . '/250/250';
         }
-
-        // } else {
-        //     $imgStore = 'storage/app/public/profile_images/resources/images/image-not-found.png';
-        // }
-        // $imgPath = $request;
 
         # Creo el usuario
         $user = User::create([

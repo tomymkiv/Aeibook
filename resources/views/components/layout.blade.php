@@ -16,6 +16,7 @@
     @if (!request()->is('login') && !request()->is('register'))
         @vite(['resources/js/menu.js'])
         @vite(['resources/js/modal.js'])
+        @vite(['resources/js/eliminarPost.js'])
     @endif
     @vite(['resources/js/info-publicaciones.js'])
 </head>

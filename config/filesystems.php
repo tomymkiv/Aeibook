@@ -59,7 +59,10 @@ return [
             'throw' => false,
             'report' => false,
         ],
-
+        'my_files' => [
+        'driver' => 'local',
+        'root'   => public_path() . '/'
+        ]
     ],
 
     /*

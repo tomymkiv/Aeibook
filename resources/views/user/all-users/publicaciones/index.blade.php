@@ -1,6 +1,5 @@
 <x-layout>
     <!--si no existe ninguna publicacion...-->
-    {{-- @dd($user->posts->count()) --}}
     @if ($user->posts->count() == 0)
         <x-not-publicaciones>
             <x-slot:userId>{{ $user->id }}</x-slot:userId>

@@ -25,11 +25,11 @@
 
                                         <img src="@if ($post->image) {{ asset($post->image) }} @endif"
                                             id="previewImage" class="rounded-full object-cover aspect-square">
-
                                     </div>
                                 </label>
                                 <x-input id="file-upload" type="file" name="image" class="hidden"
-                                    accept="image/*" />
+                                    accept="image/png, image/jpeg, image/jpg, image/webp, image/gif, 
+                                        video/mp4, video/webm, video/ogg, video/mkv, video/mov, video/avi" />
                             </div>
                         </div>
                         <div>

@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Posts;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\File;
 use Illuminate\Validation\Rules\Password;
-use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 class UserController extends Controller
 {
