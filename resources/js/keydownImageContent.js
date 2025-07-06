@@ -7,7 +7,6 @@ addEventListener('DOMContentLoaded', function () {
     if (labelImage) {
         labelImage.addEventListener('keydown', function (event) {
             if (event.key === 'Enter' || event.key === ' ') {
-                console.log("aprete")
                 event.preventDefault();
                 labelImage.click(); // Dispara el evento de click
             }

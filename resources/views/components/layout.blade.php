@@ -19,6 +19,7 @@
         @vite(['resources/js/eliminarPost.js'])
     @endif
     @vite(['resources/js/info-publicaciones.js'])
+    @vite(['resources/js/keydownImageContent.js'])
 </head>
 
 <body class="font-sans antialiased bg-black/90 dark:text-white/50">

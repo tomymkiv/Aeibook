@@ -7,7 +7,6 @@
                 <x-label for="profile_photo">Cambia tu imagen de perfil</x-label>
                 <label for="file-upload"
                     class="label-image cursor-pointer relative w-24 h-24 rounded-full bg-transparent flex items-center justify-center overflow-hidden border-2 border-gray-300 hover:border-blue-500 transition focus:outline-blue-500" tabindex="0">
-                    <!-- Imagen dentro -->
                     <img src="{{ asset($user->profile_photo) }}" class="w-full h-full object-cover user-photo">
 
                     <div id="previewContainer" class="hidden">
