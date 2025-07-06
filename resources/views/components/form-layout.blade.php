@@ -8,6 +8,7 @@
     <title>Laravel</title>
     @vite(['resources/js/app.js'])
     @vite(['resources/js/vistaArchivo.js'])
+    @vite(['resources/js/keydownImageContent.js'])
 </head>
 
 <body class=" {{ $login ? 'justify-center' : 'justify-stretch' }} bg-black/90 h-screen flex flex-col lg:justify-center">

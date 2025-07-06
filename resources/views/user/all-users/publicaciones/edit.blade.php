@@ -20,9 +20,8 @@
                             </div>
                             <div>
                                 <label for="file-upload"
-                                    class="cursor-pointer relative w-24 h-24 rounded-full bg-transparent flex items-center justify-center overflow-hidden border-2 border-gray-300 hover:border-blue-500 transition">
+                                    class="label-image cursor-pointer relative w-24 h-24 rounded-full bg-transparent flex items-center justify-center overflow-hidden border-2 border-gray-300 hover:border-blue-500 transition focus:outline-blue-500" tabindex="0">
                                     <div id="previewContainer">
-
                                         <img src="@if ($post->image) {{ asset($post->image) }} @endif"
                                             id="previewImage" class="rounded-full object-cover aspect-square">
                                     </div>
