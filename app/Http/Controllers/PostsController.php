@@ -33,25 +33,28 @@ class PostsController extends Controller
     }
     public function store(Request $request)
     {
-        $imgStore = null; # Imagen nula en caso de no elegir ningun archivo
+        $path = null; // Inicializo la variable para evitar errores si no se sube un archivo
+        try {
+            $request->validate([
+                'descripcion' => 'required|string|max:2048',
+                'path' => 'mimes:mp4,png,jpg,jpeg,webp,gif|max:102400' // 100MB máx.
+            ]);
 
-        $request->validate([
-            'descripcion' => 'required|max:2048',
-            'image' => ['nullable', 'file', File::types(['png', 'jpeg', 'jpg', 'webp', 'gif'], 'max:16384')],
-        ]);
+            # Ubico los archivos en alguna carpeta (en caso de subir un video o imagen)
+            if($request->hasFile('path')) {
+                $path = $request->file('path')->store('videos', 'public');
+            }
+            
+            Posts::create([
+                'user_id' => Auth::user()->id,
+                'descripcion' => $request->descripcion,
+                'path' => $path // uso esa url para encontrar el archivo
+            ]);
 
-        # Si tengo un archivo, le creo la url para almacenarla en esta carpeta
-        if ($request->hasFile('image')) {
-            $imgStore = $request->image->store('publicaciones_images');
+            return redirect('/home');
+        } catch (\Throwable $th) {
+            throw $th;
         }
-
-        Posts::create([
-            'user_id' => Auth::user()->id,
-            'descripcion' => request('descripcion'),
-            'image' => $imgStore,
-        ]);
-
-        return redirect('/home');
     }
 
     public function edit($id)
@@ -67,19 +70,19 @@ class PostsController extends Controller
 
         $request->validate([
             'descripcion' => ['nullable'],
-            'image' => ['nullable', File::types(['png', 'jpg', 'jpeg', 'webp', 'gif'])],
+            'path' => ['nullable', File::types(['png', 'jpg', 'jpeg', 'webp', 'gif'])],
         ]);
 
-        $data = $request->only(['descripcion', 'image']);
+        $data = $request->only(['descripcion', 'path']);
 
         # filtro los datos que no son nulos y los almaceno en memoria
         $dataFiltered = array_filter($data, function ($value) {
             return !is_null($value);
         });
 
-        if (!is_null($request->image)) {
-            $imgStore = $request->image->store('publicaciones_images');
-            $dataFiltered['image'] = $imgStore;
+        if (!is_null($request->path)) {
+            $imgStore = $request->path->store('publicaciones_images');
+            $dataFiltered['path'] = $imgStore;
         }
 
         $post->update($dataFiltered);

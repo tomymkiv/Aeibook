@@ -22,11 +22,11 @@
                                 <label for="file-upload"
                                     class="label-image cursor-pointer relative w-24 h-24 rounded-full bg-transparent flex items-center justify-center overflow-hidden border-2 border-gray-300 hover:border-blue-500 transition focus:outline-blue-500" tabindex="0">
                                     <div id="previewContainer">
-                                        <img src="@if ($post->image) {{ asset($post->image) }} @endif"
+                                        <img src="@if ($post->path) {{ asset($post->path) }} @endif"
                                             id="previewImage" class="rounded-full object-cover aspect-square">
                                     </div>
                                 </label>
-                                <x-input id="file-upload" type="file" name="image" class="hidden"
+                                <x-input id="file-upload" type="file" name="path" class="hidden"
                                     accept="image/png, image/jpeg, image/jpg, image/webp, image/gif, 
                                         video/mp4, video/webm, video/ogg, video/mkv, video/mov, video/avi" />
                             </div>

@@ -1,8 +1,9 @@
 @php
     # Convierto el userId a entero para poder compararlos correctamente
     $idUser = trim($userId->toHtml());
+    // dd($file);
     # lo convierto a html para tomar el contenido correctamente
-    $postImageContent = trim($postImage->toHtml());
+    $postFileContent = trim($file->toHtml());
     $IdPostSeleccionado = $postId;
 @endphp
 
@@ -45,7 +46,8 @@
                                 {{-- Si el usuario autenticado es el mismo que el del post, muestra las opciones de editar y eliminar --}}
                                 @if ($idUser == Auth::user()->id)
                                     <x-dropdown-item href="/user/muro/{{ $postId }}/edit">Editar</x-dropdown-item>
-                                    <x-dropdown-item class="text-red-400 delete-btn" onclick="">Eliminar</x-dropdown-item>
+                                    <x-dropdown-item class="text-red-400 delete-btn"
+                                        onclick="">Eliminar</x-dropdown-item>
                                     <x-form action="/user/muro/{{ $postId }}" id="delete-form" class=""
                                         method="POST">
                                         @csrf
@@ -53,20 +55,46 @@
                                     </x-form>
                                 @endif
                             @endauth
-
                         </div>
                     </div>
                 </div>
             </div>
-            @if (!empty($postImageContent))
+            <?php
+                $extension = pathinfo($postFileContent, PATHINFO_EXTENSION);
+                switch ($extension) {
+                    case 'mp4':
+                    case 'webm':
+                    case 'ogg':
+                    case 'mkv':
+                    case 'mov':
+                    case 'avi':
+                    // Bandera para detectar un video
+                    $video = true;
+                    ?>
+            <video controls class="rounded-lg shadow-md cursor-pointer hover:shadow-zinc-800 transition-shadow duration-300 w-full max-h-100 object-contain">
+                <source src="{{ asset('storage/' . $postFileContent) }}" type="video/{{ $extension }}">
+                Tu navegador no soporta el elemento de video.
+            </video>
+            <?php
+                    break;
+
+                    default:
+                        // Si no es un video, se asume que es una imagen
+                        $video = false;
+                        # code...
+                        break;
+                }
+            ?>
+
+            @if (!empty($postFileContent) && !$video)
+                {{-- Si la imagen no es un video, muestra la imagen --}}
                 <div class="flex items-center justify-center">
-                    <img src="{{ asset($postImage) }}" class="w-full max-h-100 object-contain" />
+                    <img src="{{ asset($file) }}" class="rounded-lg w-full max-h-100 object-contain" />
                 </div>
             @endif
             <div class="text-wrap break-words">
                 <p class="w-full text-sm font-medium">
                     {{ $postDescripcion }}</p>
-                <!--descripcion de la publicacion-->
             </div>
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end">
                 <p class="text-md">Publicado el <b>{{ $postCreado }}</b>.</p>

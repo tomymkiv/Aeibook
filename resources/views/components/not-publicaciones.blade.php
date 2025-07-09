@@ -1,4 +1,4 @@
-<div class="h-auto">
+<div class="h-screen">
     @if (!request()->is('home'))
         <div class="mt-20 mx-5">
             <h1 class="text-4xl text-center text-white/75">Aun no hay publicaciones de este usuario</h1>

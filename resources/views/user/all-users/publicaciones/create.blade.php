@@ -1,6 +1,6 @@
 <x-layout>
     <section class="space-y-10 w-3/4 xl:w-1/2 h-screen flex flex-col items-center justify-center">
-        <x-form method="POST" action="/user/muro/create" enctype="multipart/form-data">
+        <x-form method="POST" action="/user/muro/create" enctype="multipart/form-data" id='post-form'>
             @csrf
             <div>
                 <h1 class="text-4xl">Crea tu publicación</h1>
@@ -13,6 +13,7 @@
 
                 <div class="flex flex-col gap-3">
                     <textarea name="descripcion" id="descripcion" rows="30" class="rounded-md p-1 max-h-96 border border-white/30"></textarea>
+                    <x-error name="descripcion" />
                     <div class="flex flex-wrap justify-between items-end">
                         <div class="flex items-center gap-5">
                             <div>
@@ -26,9 +27,9 @@
                                         <img id="previewImage" class="rounded-full object-cover w-full h-full aspect-square">
                                     </div>
                                 </label>
-                                <input id="file-upload" type="file" name="image" class="hidden w-full h-full"
+                                <input id="file-upload" type="file" name="path" class="hidden w-full h-full"
                                     accept="image/png, image/jpeg, image/jpg, image/webp, image/gif, 
-                                        video/mp4, video/webm, video/ogg, video/mkv, video/mov, video/avi" />
+                                        video/mp4, .mp4" />
                             </div>
                             <x-error name="image" />
                         </div>

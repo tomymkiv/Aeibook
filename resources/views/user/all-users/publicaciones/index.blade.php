@@ -15,7 +15,7 @@
                 <x-slot:username>{{ $user->name }}</x-slot:username>
                 <x-slot:userId>{{ $user->id }}</x-slot:userId>
                 <x-slot:postId>{{ $user->posts[$i]->id }}</x-slot:postId>
-                <x-slot:postImage>{{ $user->posts[$i]->image }}</x-slot:postImage>
+                <x-slot:file>{{ $user->posts[$i]->path }}</x-slot:file>
                 <x-slot:postDescripcion>{{ $user->posts[$i]->descripcion }}</x-slot:postDescripcion>
                 <x-slot:postCreado>{{ $user->posts[$i]->created_at }}</x-slot:postCreado>
                 <x-slot:postActualizado>{{ $user->posts[$i]->updated_at }}</x-slot:postActualizado>
