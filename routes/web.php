@@ -25,7 +25,7 @@ Route::get('/user/{id}/muro', [PostsController::class, 'show']); # mirar publica
 Route::get('/search', SearchController::class);
 
 Route::middleware('auth')->group(function () {
-    Route::view('/user/settings', 'user.settings');
+    Route::view('/user/settings', 'users.settings');
     Route::delete('/logout', [LoginController::class, 'destroy']);
     Route::get('/user/edit', [UserController::class, 'edit']);
     Route::patch('/user/edit', [UserController::class, 'update']);

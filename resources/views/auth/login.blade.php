@@ -24,6 +24,5 @@
                 <x-redirect href="/register">Haz click aquí</x-redirect>
             </div>
         </div>
-        
     </x-form>
 </x-form-layout>

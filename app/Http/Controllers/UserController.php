@@ -15,12 +15,12 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        return view('user.all-users.perfil.index', ['user' => $user]);
+        return view('users.perfil.index', ['user' => $user]);
     }
     public function edit()
     {
         $user = Auth::user();
-        return view('user.all-users.perfil.edit', ['user' => $user]);
+        return view('users.perfil.edit', ['user' => $user]);
     }
     public function update(Request $request)
     {

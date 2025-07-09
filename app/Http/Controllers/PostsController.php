@@ -25,11 +25,11 @@ class PostsController extends Controller
     {
         $user = User::findOrFail($id);
 
-        return view('user.all-users.publicaciones.index', ['user' => $user]);
+        return view('users.publicaciones.index', ['user' => $user]);
     }
     public function create()
     {
-        return view('user.all-users.publicaciones.create');
+        return view('users.publicaciones.create');
     }
     public function store(Request $request)
     {
@@ -61,7 +61,7 @@ class PostsController extends Controller
     {
         $post = Posts::findOrFail($id);
 
-        return view('user.all-users.publicaciones.edit', ['post' => $post]);
+        return view('users.publicaciones.edit', ['post' => $post]);
     }
     public function update($id, Request $request)
     {
