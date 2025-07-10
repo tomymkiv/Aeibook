@@ -3,6 +3,7 @@
     @if ($user->posts->count() == 0)
         <x-not-publicaciones>
             <x-slot:userId>{{ $user->id }}</x-slot:userId>
+            <x-publi-button />
         </x-not-publicaciones>
     @else
         <!--si existe alguna publicacion...-->

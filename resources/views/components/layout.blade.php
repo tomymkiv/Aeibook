@@ -20,6 +20,7 @@
     @endif
     @vite(['resources/js/info-publicaciones.js'])
     @vite(['resources/js/keydownImageContent.js'])
+    @vite(['resources/js/postLoaderAJAX.js'])
 </head>
 
 <body class="font-sans antialiased bg-black/90 dark:text-white/50">
@@ -145,7 +146,6 @@
                     <nav class="flex items-center justify-center flex-wrap gap-4 mt-4 lg:mt-0">
                         <x-nav-link href="/home" :active="request()->is('home')">Inicio</x-nav-link>
                         @auth
-                            {{-- @dd('/user/' . $user->id . '/perfil') --}}
                             <x-nav-link href="/user/{{ $user->id }}/perfil" :active="request()->is('user/' . $user->id . '/perfil')">Mi perfil</x-nav-link>
                             <x-nav-link href="/user/{{ $user->id }}/muro" :active="request()->is('user/' . $user->id . '/muro')">Mis
                                 publicaciones</x-nav-link>

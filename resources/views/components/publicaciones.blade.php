@@ -46,10 +46,8 @@
                                 {{-- Si el usuario autenticado es el mismo que el del post, muestra las opciones de editar y eliminar --}}
                                 @if ($idUser == Auth::user()->id)
                                     <x-dropdown-item href="/user/muro/{{ $postId }}/edit">Editar</x-dropdown-item>
-                                    <x-dropdown-item class="text-red-400 delete-btn"
-                                        onclick="">Eliminar</x-dropdown-item>
-                                    <x-form action="/user/muro/{{ $postId }}" id="delete-form" class=""
-                                        method="POST">
+                                    <x-dropdown-item class="text-red-400 delete-btn">Eliminar</x-dropdown-item>
+                                    <x-form action="/user/muro/{{ $postId }}" id="delete-form" method="POST">
                                         @csrf
                                         @method('DELETE')
                                     </x-form>
@@ -71,7 +69,8 @@
                     // Bandera para detectar un video
                     $video = true;
                     ?>
-            <video controls class="rounded-lg shadow-md cursor-pointer hover:shadow-zinc-800 transition-shadow duration-300 w-full max-h-100 object-contain">
+            <video controls
+                class="rounded-lg shadow-md cursor-pointer hover:shadow-zinc-800 transition-shadow duration-300 w-full max-h-100 object-contain">
                 <source src="{{ asset('storage/' . $postFileContent) }}" type="video/{{ $extension }}">
                 Tu navegador no soporta el elemento de video.
             </video>
@@ -87,7 +86,7 @@
             ?>
 
             @if (!empty($postFileContent) && !$video)
-                {{-- Si la imagen no es un video, muestra la imagen --}}
+                {{-- Si el archivo no es un video, muestra la imagen --}}
                 <div class="flex items-center justify-center">
                     <img src="{{ asset($file) }}" class="rounded-lg w-full max-h-100 object-contain" />
                 </div>
