@@ -28,14 +28,20 @@ TablePlus es un software para administrar bases de datos de forma visual y rápi
 1.3.1 Ingresar a: https://tableplus.com/download/ y seleccionar la versión correspondiente para Windows.<br> 
 1.3.2 Ejecutar el instalador y seguir los pasos de instalación.<br> <br> 
 
+1.4 Git <br>
+1.4.1 Lo descargamos desde la página oficial: https://git-scm.com/downloads
+
 <h3>2.0 Preparar y ejecutar el proyecto</h3> <br> 
 2.1 Abrir Laravel Herd para que se inicie el servidor local.<br> 
-2.2 Si vas a clonar el proyecto, asegurate de hacerlo dentro de la carpeta:<br> &nbsp;&nbsp;&nbsp;&nbsp;`C:\Users\Usuario\Herd`<br> 
-2.3 Luego de clonar, se generará la carpeta `Herd/Aeibook`.<br> 
-2.4 Abrí la terminal dentro del directorio del proyecto:<br> &nbsp;&nbsp;&nbsp;&nbsp;`C:\Users\Usuario\Herd\Aeibook`<br> 
-2.5 En esa terminal, ejecutá el siguiente comando:<br> &nbsp;&nbsp;&nbsp;&nbsp;`npm install && npm run dev`<br> Esto instalará todas las dependencias necesarias de Vite para el entorno local.<br> 
-2.6 Laravel Herd te mostrará una URL local, como por ejemplo:<br> &nbsp;&nbsp;&nbsp;&nbsp;APP_URL: http://aeibook.test<br> Podés ingresar haciendo `Ctrl + clic` en el enlace.<br> <!-- Imagen correspondiente al apartado 3.6 --> <br> 
-![image](https://github.com/user-attachments/assets/dfa9ee34-b94a-4b66-a3cf-ca4b98d9d2fc) <br>
+2.2 Si vas a clonar el proyecto, asegurate de hacerlo dentro de un directorio de `C:\Users\Usuario\Herd`<br>.
+2.3 Creamos la carpeta dentro de `C:\Users\Usuario\Herd` usando "mkdir 'Aeibook-test'" o el nombre que quieran (recuerdenlo para el paso 2.6.1).<br>
+2.4 Una vez creado, inicializamos git en este directorio usando "git init". Luego, usamos el comando <b>git pull "https://github.com/tomymkiv/Aeibook.git</b> para traer el repositorio remoto a local. <br>
+2.5 Una vez finalizado, dentro de la carpeta del proyecto (`C:\Users\Usuario\Herd\aeibook-test`) ejecutamos el comando "npm install" para todas las dependencias de Vite, necesarias para la ejecucion. <br>
+2.6 Finalmente, si siguieron todos los pasos hasta acá, ejecutan "npm run dev" dentro del mismo directorio del proyecto. Una vez hecho esto, nos saldran 2 links: <img width="349" height="203" alt="image" src="https://github.com/user-attachments/assets/84feb666-3004-4405-bc10-bfeadfcda846" />. En este punto, clickeamos el de Laravel (APP_URL: http://aeibook.test).<br>
+2.6.1 <h4>¡IMPORTANTE!</h4> Si les arroja un error de "vite manifest" al abrirlo en el navegador: <br><img width="415" height="67" alt="image" src="https://github.com/user-attachments/assets/935aca52-9e7c-4559-99b0-07bbc8d464b8" /><br>
+Es probable que la ruta no coincida con el archivo ".env". Para eso, deben recordar el nombre que le dieron a la carpeta que crearon para almacenar el proyecto. Deben modificar el parámetro "APP_URL" y poner el nombre de la carpeta que crearon.test: <img width="307" height="20" alt="image" src="https://github.com/user-attachments/assets/e88cc79e-bcd6-49b4-a1c7-6763ed8cf38d" /><br>
+Esto debido a que cada vez que lo ejecuten, se usará el valor del archivo mencionado (Aeibook.test), el cual asume que su directorio es "Aeibook". Sin embargo, con cambiar la URL en la web es suficiente (directorio.test).<br>
+Con estos cambios realizados, ahora reiniciamos el servidor y volvemos a ejecutar npm run dev como antes, pero con la URL modificada: <img width="392" height="117" alt="image" src="https://github.com/user-attachments/assets/b203080f-a198-4326-b6a8-c716f112eecf" /> <br><br>
 
 <h3>3.0 Conexión con la base de datos (TablePlus)</h3> <br>
 3.1 Abrir TablePlus y crear una nueva conexión haciendo clic en "Create connection..." (abajo a la izquierda).<br>
