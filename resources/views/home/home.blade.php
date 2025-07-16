@@ -1,7 +1,7 @@
 @php
     # Verifico si existen usuarios relacionados con posts
     $posts_avail = false;
-
+    // dd($posts);
     foreach ($posts as $post) {
         if ($post->user) {
             $posts_avail = true;
@@ -9,7 +9,7 @@
     }
 @endphp
 <x-layout>
-    <section class="flex mt-10 flex-col mx-3">
+    <section class="posts-container flex mt-10 flex-col mx-3">
         <div class="mx-3 mt-10">
             <h1 class="text-4xl">Página principal</h1>
         </div>
@@ -39,6 +39,15 @@
                 <x-slot:modalDescription>¿Estás seguro que quieres eliminar esta publicación? Esta acción es
                     irreversible.</x-slot:modalDescription>
             </x-modal>
+            <div class="new-posts">
+                
+            </div>
+            <div class="flex flex-col items-center justify-center gap-5">
+                <button id="btn-info" data-offset="{{ count($posts) }}" class="bg-gray-500 p-5 rounded-lg cursor-pointer w-full text-white/90 text-xl shadow-lg hover:shadow-zinc-800">Cargar más publicaciones</button>
+                <p id="info" class="text-white/90 text-xl"></p>
+                <span class="loader hidden"></span>
+            </div>
         @endif
     </section>
+    <script></script>
 </x-layout>

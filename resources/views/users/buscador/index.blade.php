@@ -1,7 +1,9 @@
 <x-layout>
+    {{-- @dd($users[0]->name) --}}
     <section class="space-y-12 w-full flex items-center flex-col mx-5">
         {{-- si existe al menos un usuario y no es el usuario logueado --}}
-        @if ($users->count() > 0 && $users[0]->name !== Auth::user()->name)
+        {{-- @if() --}}
+        @if ($users->count() > 0 && $users[0]->name != Auth::user()->name)
             <div>
                 <h1 class="text-4xl">Resultados</h1>
             </div>

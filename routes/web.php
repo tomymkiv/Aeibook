@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home.index'); # Bienvenida
 Route::get('/home', [PostsController::class, 'index']); # Menu
+Route::get('/home/data', [PostsController::class, 'data']); # Cargar mas publicaciones (solo en pagina principal)
+Route::get('/user/{id}/muro/data', [PostsController::class, 'dataUser']); # Cargar mas publicaciones (de un usuario especifico)
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisterUserController::class, 'index'])->name('register');
@@ -22,9 +24,9 @@ Route::middleware('guest')->group(function () {
 Route::get('/user/{id}/perfil', [UserController::class, 'show']); # buscar perfiles
 Route::get('/user/{id}/muro', [PostsController::class, 'show']); # mirar publicaciones de un usuario
 # Buscador de usuarios
-Route::get('/search', SearchController::class);
 
 Route::middleware('auth')->group(function () {
+    Route::get('/search', SearchController::class);
     Route::view('/user/settings', 'users.settings');
     Route::delete('/logout', [LoginController::class, 'destroy']);
     Route::get('/user/edit', [UserController::class, 'edit']);

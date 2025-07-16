@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Laravel</title>
     @vite(['resources/js/app.js'])
     @if (request()->is('login') ||
@@ -13,15 +13,40 @@
         @vite(['resources/js/vistaArchivo.js'])
     @endif
 
-    @if (!request()->is('login') && !request()->is('register'))
+    @if (!request()->is('login') && !request()->is('register') && !request()->is('home/index'))
         @vite(['resources/js/menu.js'])
         @vite(['resources/js/modal.js'])
         @vite(['resources/js/eliminarPost.js'])
+        @vite(['resources/js/info-publicaciones.js'])
+        @vite(['resources/js/postLoaderAJAX.js'])
     @endif
-    @vite(['resources/js/info-publicaciones.js'])
+
     @vite(['resources/js/keydownImageContent.js'])
-    @vite(['resources/js/postLoaderAJAX.js'])
+
 </head>
+<!--Loader style-->
+<style>
+    .loader {
+        width: 48px;
+        height: 48px;
+        border: 5px solid #FFF;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        /* display: inline-block; */
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
 
 <body class="font-sans antialiased bg-black/90 dark:text-white/50">
     @if (!request()->is('/'))
@@ -116,8 +141,6 @@
                         </div>
                     </div>
                 @endauth
-
-                {{-- @endauth --}}
                 <div class="w-full">
                     <form action="/search" class="flex flex-col xl:flex-row items-end gap-3">
                         @csrf
@@ -138,6 +161,7 @@
         </section>
     @endif
     </div>
+
     @if (!request()->is('/'))
         <footer class="bg-black/65 text-white py-6">
             <div class="max-w-6xl mx-auto px-4">
